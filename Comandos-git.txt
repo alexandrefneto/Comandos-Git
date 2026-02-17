@@ -1,0 +1,152 @@
+GUIA COMPLETO DE COMANDOS GIT
+
+============================== 
+1. CONFIGURAÇÃO INICIAL
+==============================
+
+git config –global user.name “Seu Nome” Define o nome que aparecerá nos
+seus commits.
+
+git config –global user.email “seuemail@email.com” Define o email
+associado aos seus commits.
+
+git config –list Mostra todas as configurações atuais do Git.
+
+==============================
+2. INICIANDO REPOSITÓRIO
+==============================
+
+git init Cria um novo repositório Git na pasta atual.
+
+git clone url-do-repositorio Clona (copia) um repositório remoto para
+sua máquina.
+
+============================== 
+3. ADICIONANDO ARQUIVOS
+==============================
+
+git status Mostra o status atual dos arquivos (modificados, novos, etc).
+
+git add nome-do-arquivo Adiciona um arquivo específico para o próximo
+commit.
+
+git commit --amend -m "Trocando botao para adivinhar" (edita mensagem caso tenha enviado ela errado)
+
+git add . Adiciona todos os arquivos alterados para o commit.
+
+git reset nome-do-arquivo Remove o arquivo da área de staging (desfaz o
+git add).
+
+============================== 
+4. COMMITS 
+==============================
+
+git commit -m “mensagem” Cria um commit com uma mensagem explicando a
+alteração.
+
+git commit -am “mensagem” Adiciona e faz commit de arquivos já
+rastreados em um único comando.
+
+git log Mostra o histórico de commits.
+
+git log –oneline Mostra o histórico resumido em uma linha por commit.
+
+============================== 
+5. TRABALHANDO COM BRANCHES
+
+Branch = uma cópia da linha principal do projeto para você trabalhar separado.
+==============================
+
+git branch Lista todas as branches.
+
+git branch nome-da-branch Cria uma nova branch.
+
+git checkout nome-da-branch Muda para outra branch.
+
+git checkout -b nome-da-branch Cria e já muda para a nova branch.
+
+git switch nome-da-branch Forma moderna de trocar de branch.
+
+git merge nome-da-branch Mescla uma branch na branch atual.
+
+git branch -d nome-da-branch Deleta uma branch.
+
+============================== 
+6. REPOSITÓRIO REMOTO (GITHUB)
+==============================
+
+git remote -v Exibe os repositórios remotos conectados.
+
+git remote add origin url-do-repositorio Conecta seu repositório local
+ao GitHub.
+
+git remote remove origin Remove a conexão com o repositório remoto.
+
+git push origin main Envia os commits para o GitHub.
+
+git push -u origin main Envia e define a branch principal como padrão.
+
+git pull origin main Baixa e mescla alterações do GitHub.
+
+git fetch Baixa as alterações do remoto, mas não aplica automaticamente.
+
+============================== 
+7. DESFAZENDO ALTERAÇÕES
+==============================
+
+git checkout – nome-do-arquivo Desfaz alterações no arquivo (volta para
+última versão commitada).
+
+git reset –hard Remove todas as alterações locais (CUIDADO).
+
+git reset -–hard id-do-ultimocommit (O comando git reset permite redefinir a posição da branch atual para um commit anterior, removendo os commits posteriores do histórico.).
+Ele volta para o ultimo commite feito
+
+
+git revert id-do-commit Cria um novo commit desfazendo um commit
+anterior.
+
+é possivel ver o id do commit fazendo um git log
+
+depois de dar o git revert tem q fazer o push novamente
+
+============================== 
+8. TAGS (VERSÕES)
+==============================
+
+git tag Lista todas as tags.
+
+git tag nome-da-tag Cria uma nova tag.
+
+git push origin nome-da-tag Envia a tag para o GitHub.
+
+============================== 
+9. ARQUIVO .gitignore
+==============================
+
+touch .gitignore Cria o arquivo para ignorar arquivos/pastas no Git.
+
+com isso ele irá ignorar as pasta ou arquivos. 
+
+Exemplo: 
+
+temp/ (Irá ignorar a pasta temp na hora de dar add . e commit)
+senhas.txt (Irá ignorar o arquivo senhas txt)
+
+
+vale lembrar que tem sites que criam esse arquivo .ignore site: https://www.toptal.com/developers/gitignore
+
+============================== 
+10. FLUXO PADRÃO PARA SUBIR PRO GITHUB
+==============================
+
+git init git add . git commit -m “Primeiro commit” git branch -M main
+git remote add origin url-do-repositorio git push -u origin main
+
+
+
+============================== 
+11. GIST
+==============================
+
+Você pode compartilhar somente um texto de código sem criar um repositorio em especifico
